@@ -1,0 +1,16 @@
+body {
+    background-image: url(../img/shattered.png);
+  }
+
+  .logo {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .logo a {
+    color: #1ee228e6;
+  }
+
+  .logo a:hover,
+  .logo a:active {
+    text-decoration: none;
+  }
