@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Board , Topic, Post
-from .forms import NewTopicForm , PostForm
+from .forms import NewTopicForm , PostForm , BoardForm
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View #  class based view
@@ -193,5 +193,17 @@ class PostListView(ListView):
         self.topic = get_object_or_404(Topic, board__pk=self.kwargs.get('pk'), pk=self.kwargs.get('topic_pk'))
         queryset = self.topic.posts.order_by('created_at')
         return queryset
+
+class NewBoardView(CreateView):
+    model = Board
+    form_class = BoardForm
+    context_object_name = 'board'
+    success_url = reverse_lazy('home')
+    template_name = 'new_board.html'
+
+    # def get_context_data(self, **kwargs):
+    #     self.board = Board.objects.get(pk=2)
+    #     kwargs['board'] = self.board
+    #     return super().get_context_data(**kwargs)
 
 

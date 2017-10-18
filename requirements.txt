@@ -3,3 +3,7 @@ Django==1.11.6
 django-widget-tweaks==1.4.1
 Markdown==2.6.9
 python-decouple==3.1
+psycopg2==2.7.3.1
+python-decouple==3.1
+dj-static==0.0.6
+gunicorn

@@ -23,6 +23,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = (
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.BoardListView.as_view(), name='home'), # url(r'^$', views.home, name='home'),
+    url(r'^new_board/$', views.NewBoardView.as_view(), name='new_board'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'), # necessário adicionar LOGIN_REDIRECT_URL = 'home' no settings
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^logout/$', auth_views.logout, name='logout'), # Necessário adicionar LOGOUT_REDIRECT_URL = 'home' no settings
